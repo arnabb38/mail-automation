@@ -29,7 +29,7 @@ loss_val=$(echo $pack | cut -d '%' -f1)
 #whatsapp & twilio
 #start
 
-your_auth_token=2822c07fd9cb75b59b1c9dd57a9b8b65
+your_auth_token=XXXXXXXXXXXXXXXXXXXXXXX
 
 #end
 #-------------------------------------------------------------------------------
@@ -40,14 +40,14 @@ then
 	echo "CODE RED!!!" #print in CLI
 
 	#if code red occure, it'll send a mail	
-	echo "`date` -- CODE RED!!!" | mail -A "/home/arnabb/Documents/script-pooooool/auto-mail-scripting-BI/pingtest.txt" -s "Ping Result" -a From:Admin\<admin@example.com\> dannielabe7@gmail.com
+	echo "`date` -- CODE RED!!!" | mail -A "/home/arnabb/Documents/script-pooooool/auto-mail-scripting-BI/pingtest.txt" -s "Ping Result" -a From:Admin\<admin@example.com\> XXXXXXXXX@gmail.com
 
 	#-------------------------------------------------------
-	curl -X POST https://api.twilio.com/2010-04-01/Accounts/ACe1f07bd568b8e8348efdc703a6630f79/Messages.json \
-	--data-urlencode "From=whatsapp:+14155238886" \
+	curl -X POST https://api.twilio.com/2010-04-01/Accounts/ACXXXXXXXXXXXXXXXXXXXXXX/Messages.json \
+	--data-urlencode "From=whatsapp:+XXXXXXXXX" \
 	--data-urlencode "Body=Packet Loss: $pack" \
-	--data-urlencode "To=whatsapp:+8801819745556" \
-	-u ACe1f07bd568b8e8348efdc703a6630f79:$your_auth_token
+	--data-urlencode "To=whatsapp:+XXXXXXXXXXX" \
+	-u ACXXXXXXXXXXXXXXXXXXXXXXX:$your_auth_token
 
 
 elif [ $loss_val -gt "0" -a $loss_val -lt "30" ]
